@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assest/css/Style.css" type="text/css" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <link rel="icon" type="image/png" sizes="16x16" href="Assest/img/favicon.ico">
+    <title>New Tab</title>
+</head>
+
+<body>
+    <div class="Body" id="bg">
+        <!-- Settings İcon-->
+        <div class="set" id="setdiv">
+            <img src="Assest/img/S.png" id="setimg" class="img" width="25px" height="25px"><img src="Assest/img/FS.png"
+                id="set2img" class="img fs invisible" width="25px" height="25px">
+        </div>
+        <!-- Settings Menu -->
+        <div id="setcol" class="set-col">
+            <div id="bg-set" class="back-ground invisible">
+                <select class="btn" id="select">
+                    <option value="" selected disabled>Background Settings</option>
+                    <option value="unsplah">Unsplah Random Backgrounds</option>
+                    <option value="uplad">Upload Background</option>
+                    <option value="color">Color</option>
+                    <option value="Reset" id="Reset-bg">Reset</option>
+                </select>
+                <br>
+                <!-- Settings Background -->
+                <div id="set-cont">
+                    <div class="invisible">
+                        <input id="kword" class="input" type="text" placeholder="Keywords (Example,Example)">
+                        <button class="btn btn-bgunsplash" id="setbgunsplah"> Unsplah Random Backgrounds </button>
+                    </div>
+                    <div class="invisible">
+                        <label for="bg-img" class="btn">Upload Background</label>
+                        <input class="invisible" type="file" id="bg-img" />
+                    </div>
+                    <div class="invisible">
+                        <p>Solid Color</p>
+                        <input class="color " type="color" id="bgcolor" />
+                    </div>
+                </div>
+            </div>
+            <!-- Main Screen -->
+        </div>
+        <div class="Head">
+            <h1>Welcome Back</h1>
+            <img class="gif" src="Assest/img/head.gif" />
+        </div>
+        <div class="search">
+            <input id="gsrc" class="bar" type="text" placeholder="Google'da Ara" />
+            <a href="" class="invisible"></a>
+        </div>
+        <div class="Footer">
+            <div id="Clock" class="clock"></div>
+        </div>
+    </div>
+    <script src="Assest/js/Script.js"></script>
+</body>
+
+</html>
