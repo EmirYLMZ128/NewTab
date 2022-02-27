@@ -1,5 +1,5 @@
 // Search
-var search = document.getElementById("gsrc");
+let search = document.getElementById("gsrc");
 search.addEventListener("keyup", (e) => {
     if (e.keyCode === 13) {
         window.open("https://www.google.com/search?q=" + search.value, "_self");
@@ -7,14 +7,14 @@ search.addEventListener("keyup", (e) => {
 });
 // Date
 function Clck() {
-    var Day = new Date().getDay();
-    var DayNum = new Date().getDate();
-    var Hour = new Date().getHours();
-    var Min = new Date().getMinutes();
-    var Sec = new Date().getSeconds();
-    var Mon = new Date().getMonth() + 1;
-    var element = document.getElementById("Clock");
-    var weekday = new Array(7);
+    let Day = new Date().getDay();
+    let DayNum = new Date().getDate();
+    let Hour = new Date().getHours();
+    let Min = new Date().getMinutes();
+    let Sec = new Date().getSeconds();
+    let Mon = new Date().getMonth() + 1;
+    let element = document.getElementById("Clock");
+    let weekday = new Array(7);
     weekday[0] = "Sunday";
     weekday[1] = "Monday";
     weekday[2] = "Tuesday";
@@ -23,7 +23,7 @@ function Clck() {
     weekday[5] = "Friday";
     weekday[6] = "Saturday";
 
-    var month = new Array();
+    let month = new Array();
     month[1] = "January";
     month[2] = "February";
     month[3] = "March";
@@ -37,84 +37,29 @@ function Clck() {
     month[11] = "November";
     month[12] = "December";
 
-    if (Mon < 10) {
-
-        if (Sec < 10) {
-            if (DayNum < 10) {
-                var clock = document.getElementById("Clock");
-                clock.innerText = "";
-                clock.append(document.createTextNode(weekday[Day] + ", 0" + DayNum + " " + month[Mon]));
-                var br = document.createElement("br");
-                clock.appendChild(br);
-                clock.appendChild(document.createTextNode(Hour + ":" + Min + ":0" + Sec));
-            } else {
-                var clock = document.getElementById("Clock");
-                clock.innerText = "";
-                clock.append(document.createTextNode(weekday[Day] + "," + DayNum + " " + month[Mon]));
-                var br = document.createElement("br");
-                clock.appendChild(br);
-                clock.appendChild(document.createTextNode(Hour + ":" + Min + ":0" + Sec));
-            }
-        } else {
-            if (DayNum < 10) {
-                var clock = document.getElementById("Clock");
-                clock.innerText = "";
-                clock.append(document.createTextNode(weekday[Day] + ", 0" + DayNum + " " + month[Mon]));
-                var br = document.createElement("br");
-                clock.appendChild(br);
-                clock.appendChild(document.createTextNode(Hour + ":" + Min + ":" + Sec));
-            } else {
-                var clock = document.getElementById("Clock");
-                clock.innerText = "";
-                clock.append(document.createTextNode(weekday[Day] + "," + DayNum + " " + month[Mon]));
-                var br = document.createElement("br");
-                clock.appendChild(br);
-                clock.appendChild(document.createTextNode(Hour + ":" + Min + ":" + Sec));
-            }
-        }
-    } else {
-        if (Sec < 10) {
-            if (DayNum < 10) {
-                var clock = document.getElementById("Clock");
-                clock.innerText = "";
-                clock.append(document.createTextNode(weekday[Day] + ", 0" + DayNum + " " + month[Mon]));
-                var br = document.createElement("br");
-                clock.appendChild(br);
-                clock.appendChild(document.createTextNode(Hour + ":" + Min + ":0" + Sec));
-            } else {
-                var clock = document.getElementById("Clock");
-                clock.innerText = "";
-                clock.append(document.createTextNode(weekday[Day] + "," + DayNum + " " + month[Mon]));
-                var br = document.createElement("br");
-                clock.appendChild(br);
-                clock.appendChild(document.createTextNode(Hour + ":" + Min + ":0" + Sec));
-            }
-        } else {
-            if (DayNum < 10) {
-                var clock = document.getElementById("Clock");
-                clock.innerText = "";
-                clock.append(document.createTextNode(weekday[Day] + ", 0" +DayNum + " " + month[Mon]));
-                var br = document.createElement("br");
-                clock.appendChild(br);
-                clock.append(document.createTextNode(Hour + ":" + Min + ":" + Sec));
-            } else {
-                var clock = document.getElementById("Clock");
-                clock.innerText = "";
-                clock.append(document.createTextNode(weekday[Day] + "," + DayNum + " " + month[Mon]));
-                var br = document.createElement("br");
-                clock.appendChild(br);
-                clock.append(document.createTextNode(Hour + ":" + Min + ":" + Sec));
-            }
-        }
+    let clock = document.getElementById("Clock");
+    if(Sec < 10){
+        Sec="0"+Sec;
     }
+    if(DayNum < 10){
+        DayNum="0"+DayNum;
+    }
+    if(Hour < 10){
+        Hour="0"+Hour;
+    }
+    if(Min < 10){
+        Min="0"+Min;
+    }
+    clock.innerHTML = ""+ weekday[Day] +","+ DayNum +" "+ month[Mon] +"<br/>"+ Hour +":"+ Min + ":"+ Sec +"";
+
 }
 Clck();
 setInterval(Clck, 100);
 // Setting icon
 
-var set = document.getElementById("setimg");
-var div = document.getElementById("setdiv");
-var set2 = document.getElementById("set2img");
+let set = document.getElementById("setimg");
+let div = document.getElementById("setdiv");
+let set2 = document.getElementById("set2img");
 
 div.style.width = set.clientWidth + "px";
 div.addEventListener("mouseover", () => {
@@ -125,7 +70,7 @@ div.addEventListener("mouseout", () => {
     div.style.width = set.clientWidth + "px";
     set2.classList.add("invisible");
 });
-var screenctrl = 1;
+let screenctrl = 1;
 
 function fs() {
     if (screenctrl == 1) {
@@ -138,7 +83,7 @@ function fs() {
     }
 }
 //Settings Menu
-var y = 1;
+let y = 1;
 
 function settings() {
     let element = document.getElementById("setcol");
@@ -168,9 +113,9 @@ set2.addEventListener("click", () => {
 
 // Backgorund Setting
 function setbg(btn) {
-    var body = document.getElementById("bg");
+    let body = document.getElementById("bg");
     if (btn == "unsplah") {
-        var key = document.getElementById("kword");
+        let key = document.getElementById("kword");
         if (key.value == "") {
             body.style.backgroundImage = "url(https://source.unsplash.com/random)";
         } else {
@@ -208,7 +153,7 @@ function setbg(btn) {
         }
     }
     if (btn == "color") {
-        var color = document.getElementById("bgcolor");
+        let color = document.getElementById("bgcolor");
         color.addEventListener("change", () => {
             body.style.backgroundColor = color.value;
             localStorage.setItem("bgcolor", color.value);
@@ -228,7 +173,7 @@ function setbg(btn) {
 document.addEventListener("load", setbg(localStorage.getItem("setbg")));
 //Setting Backgorund
 function select(o) {
-    var s = document.getElementById("set-cont");
+    let s = document.getElementById("set-cont");
     s.childNodes[o].classList.remove("invisible");
     for (i = 0; i < arguments.length - 1; i++) {
         if (s.childNodes[arguments[i + 1]].classList[0] !== "invisible") {
