@@ -60,9 +60,6 @@ function Clck() {
         clock.childNodes[0].data=""+ weekday[Day] +","+ DayNum +" "+ month[Mon] +"";
         clock.childNodes[2].data=""+ Hour +":"+ Min + ":"+ Sec +"";
     }
-    /* clock.firstChild.data = ""+ weekday[Day] +","+ DayNum +" "+ month[Mon] +"<br/>"+ Hour +":"+ Min + ":"+ Sec +"";*/
-
-    console.log(clock.childNodes);
 }
 Clck();
 setInterval(Clck, 900);
