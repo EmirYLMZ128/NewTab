@@ -50,11 +50,22 @@ function Clck() {
     if(Min < 10){
         Min="0"+Min;
     }
-    clock.innerHTML = ""+ weekday[Day] +","+ DayNum +" "+ month[Mon] +"<br/>"+ Hour +":"+ Min + ":"+ Sec +"";
 
+    if (clock.childNodes.length == 0 ) {
+        clock.appendChild(document.createTextNode(""+ weekday[Day] +","+ DayNum +" "+ month[Mon] +""));
+        let br = document.createElement('br');
+        clock.appendChild(br);
+        clock.appendChild(document.createTextNode(""+ Hour +":"+ Min + ":"+ Sec +""));
+    }else{
+        clock.childNodes[0].data=""+ weekday[Day] +","+ DayNum +" "+ month[Mon] +"";
+        clock.childNodes[2].data=""+ Hour +":"+ Min + ":"+ Sec +"";
+    }
+    /* clock.firstChild.data = ""+ weekday[Day] +","+ DayNum +" "+ month[Mon] +"<br/>"+ Hour +":"+ Min + ":"+ Sec +"";*/
+
+    console.log(clock.childNodes);
 }
 Clck();
-setInterval(Clck, 100);
+setInterval(Clck, 900);
 // Setting icon
 
 let set = document.getElementById("setimg");
