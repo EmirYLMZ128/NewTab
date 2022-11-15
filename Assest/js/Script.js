@@ -7,58 +7,20 @@ search.addEventListener("keyup", (e) => {
 });
 // Date
 function Clck() {
-    let Day = new Date().getDay();
-    let DayNum = new Date().getDate();
-    let Hour = new Date().getHours();
-    let Min = new Date().getMinutes();
-    let Sec = new Date().getSeconds();
-    let Mon = new Date().getMonth() + 1;
-    let element = document.getElementById("Clock");
-    let weekday = new Array(7);
-    weekday[0] = "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
-
-    let month = new Array();
-    month[1] = "January";
-    month[2] = "February";
-    month[3] = "March";
-    month[4] = "April";
-    month[5] = "May";
-    month[6] = "June";
-    month[7] = "July";
-    month[8] = "August";
-    month[9] = "September";
-    month[10] = "October";
-    month[11] = "November";
-    month[12] = "December";
-
+    let date = new Date();
+    let options = { weekday: 'long', year: '2-digit', month: 'numeric', day: 'numeric' };
+    let cdate = date.toLocaleDateString('en-EN', options);
+    let ctime = date.toLocaleTimeString();
     let clock = document.getElementById("Clock");
-    if(Sec < 10){
-        Sec="0"+Sec;
-    }
-    if(DayNum < 10){
-        DayNum="0"+DayNum;
-    }
-    if(Hour < 10){
-        Hour="0"+Hour;
-    }
-    if(Min < 10){
-        Min="0"+Min;
-    }
 
     if (clock.childNodes.length == 0 ) {
-        clock.appendChild(document.createTextNode(""+ weekday[Day] +","+ DayNum +" "+ month[Mon] +""));
+        clock.appendChild(document.createTextNode(cdate));
         let br = document.createElement('br');
         clock.appendChild(br);
-        clock.appendChild(document.createTextNode(""+ Hour +":"+ Min + ":"+ Sec +""));
+        clock.appendChild(document.createTextNode(ctime));
     }else{
-        clock.childNodes[0].data=""+ weekday[Day] +","+ DayNum +" "+ month[Mon] +"";
-        clock.childNodes[2].data=""+ Hour +":"+ Min + ":"+ Sec +"";
+        clock.childNodes[0].data=cdate;
+        clock.childNodes[2].data=ctime;
     }
 }
 Clck();
